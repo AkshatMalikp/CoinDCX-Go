@@ -1,12 +1,13 @@
 import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from "../../components/HomeScreen";
-import { PriceScreen } from "../../components/PriceScreen";
 
 import { MyInvestmentScreen } from "../../components/MyInvestmentScreen";
 import { OrderScreen } from "../../components/OrderScreen";
 import { AccountScreen } from "../../components/AccountScreen";
+import { PriceNavigator } from "./Price.navigator";
 import { View ,Image,Text} from "react-native";
+import { Header } from "../../components/Header";
 const Tab = createBottomTabNavigator();
 
 export const Homenavigator=()=> {
@@ -41,27 +42,18 @@ export const Homenavigator=()=> {
 
         )
       }} />
-      <Tab.Screen name="Prices" component={PriceScreen} options={{
+      <Tab.Screen name="Prices" component={PriceNavigator}  options={{
         tabBarIcon: ({focused})=>(
             <View>
-            <Image source={require('../../assets/pricesicon.jpg')} style={{
-
-              width:25,
-              height:25,
-            }}/>
-
-
+            <Image source={require('../../assets/pricesicon.jpg')} style={{width:25,height:25,}}/>
             <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
               Prices
             </Text>
-
-
-
-           </View>
-           
-
-        )
-      }}/>
+            </View>
+        ),
+      }}
+         
+      />
       
       <Tab.Screen name="Orders" component={OrderScreen} options={{
         tabBarIcon: ({focused})=>(
