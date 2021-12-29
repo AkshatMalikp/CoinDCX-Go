@@ -31,7 +31,7 @@ export const Homenavigator=()=> {
             }}/>
 
 
-            <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
+            <Text style={{fontSize:10,color :focused? '#0000FF' :'black'}}> 
               Home
             </Text>
 
@@ -46,7 +46,7 @@ export const Homenavigator=()=> {
         tabBarIcon: ({focused})=>(
             <View>
             <Image source={require('../../assets/pricesicon.jpg')} style={{width:25,height:25,}}/>
-            <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
+            <Text style={{fontSize:10,color :focused? '#0000FF' :'black'}}> 
               Prices
             </Text>
             </View>
@@ -65,7 +65,7 @@ export const Homenavigator=()=> {
             }}/>
 
 
-            <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
+            <Text style={{fontSize:10,color :focused? '#0000FF' :'black'}}> 
               Orders
             </Text>
 
@@ -87,7 +87,7 @@ export const Homenavigator=()=> {
             }}/>
 
 
-            <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
+            <Text style={{fontSize:10,color :focused? '#0000FF' :'black'}}> 
               My Investment
             </Text>
 
@@ -110,7 +110,7 @@ export const Homenavigator=()=> {
             }}/>
 
 
-            <Text style={{fontSize:10,color :focused? '#0000FF' :'FFFFFF'}}> 
+            <Text style={{fontSize:10,color :focused? '#0000FF' :'black'}}> 
               Account
             </Text>
 

@@ -1,39 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, TouchableOpacity } from "react-native";
 import { StyleSheet ,Text,View } from "react-native";
 import { Header } from "./Header";
 import { Data4 } from "../data/Data4";
 import { FlatList } from "react-native";
 import { Image } from "react-native";
-
+import { getMarketData } from "../services/cryptoService";
+import { useEffect } from "react";
+import { ListCard } from "./ListCard";
 
 export const PriceScreen2=({navigation})=>{
+    const [data,setData]=useState([]);
+    useEffect(()=>{
+        const fetchMarketData=async ()=>{
+            const MarketData = await getMarketData();
+            setData(MarketData);
+        }
+
+      fetchMarketData();
+    },[])
     const renderItem=({item})=>{
      return(
-         <View>
-             <TouchableOpacity>
-
-            
-         <View style={{flexDirection:'row',justifyContent:"space-between",marginLeft:15,marginRight:15}}>
-             <View style={{flexDirection:'row'}}>
-             <Image source={item.link} style={{height:50,width:50}} />
-             <Text style={{fontSize:15,marginLeft:10,marginTop:6,}}>{item.name}</Text>
-             </View>
-             <View style={{flexDirection:'row',marginTop:15,}}>
-            <Text style={{marginRight:30,}}>${item.price}</Text>
-            <Text style={{marginRight:10,color:item.colorr}}>{item.change}</Text>
-             </View>
-
-             
-         </View>
-         </TouchableOpacity>
-
-         
-        <View style={{flexDirection: 'row', alignItems: 'center',margin:15,}}>
-        <View style={{flex: 1, height: 1, backgroundColor: 'lightgrey'}} />
-           </View>
-
-           </View>
+        <ListCard name={item.name} logoUrl={item.image} currentPrice={item.current_price} priceChange={item.price_change_percentage_24h_in_currency} />
      )
     }
 return(
@@ -51,7 +39,7 @@ return(
   <View style={{flex: 1, height: 1, backgroundColor: 'lightgrey'}} />
      </View>
      <FlatList 
-     data={Data4}
+     data={data}
      renderItem={renderItem}
      keyExtractor={item=>item.id} 
      showsVerticalScrollIndicator={false}
