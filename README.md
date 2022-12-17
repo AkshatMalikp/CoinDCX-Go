@@ -1,5 +1,5 @@
-# CoinDCX-Go
-# Title: Facial Expression Recognition
+
+# Title: CoinDCX-Go
 # 1. Description
 A App that can run both on ANDROID as well as IOS showing live prices of crypto coins in market took the help of COINDCXGo for UI  
 # 3. ScreenShots
